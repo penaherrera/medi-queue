@@ -12,7 +12,9 @@ namespace medi_queue
         }
 
         private void button1_Click(object sender, EventArgs e)
+   
         {
+
             try
             {
                 using (var connection = DatabaseConnection.GetConnection())

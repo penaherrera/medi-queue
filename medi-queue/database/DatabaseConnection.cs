@@ -8,7 +8,7 @@ namespace medi_queue.database
         // =============================================
         // VARIABLES QUE DEBES CONFIGURAR PARA TU ENTORNO
         // =============================================
-        private const string DB_SERVER = ""; // Cambiar por tu servidor
+        private const string DB_SERVER = "(localdb)\\SQL_SERVER_LOCALDB"; // Cambiar por tu servidor
         private const string DB_NAME = "medi_queue";
         private const bool USE_WINDOWS_AUTH = true;                 // True para autenticación Windows
         private const string DB_USER = "";                          // Usuario SQL (si USE_WINDOWS_AUTH=false)
