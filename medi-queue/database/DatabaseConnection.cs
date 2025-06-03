@@ -6,7 +6,7 @@ namespace medi_queue.database
     public class DatabaseConnection
     {
         // =============================================
-        // VARIABLES QUE DEBES CONFIGURAR PARA TU ENTORNO
+        // VARIABLES QUE DEBES CONFIGURAR PARA TU ENTORNO.
         // =============================================
         private const string DB_SERVER = "(localdb)\\SQL_SERVER_LOCALDB"; // Cambiar por tu servidor
         private const string DB_NAME = "medi_queue";
