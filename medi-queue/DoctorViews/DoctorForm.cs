@@ -16,11 +16,13 @@ namespace medi_queue
     public partial class DoctorForm : Form
     {
         private dynamic cita;
+        private int idDoctor;
 
-        public DoctorForm()
+        public DoctorForm(int idDoctor)
         {
             InitializeComponent();
-            // Aquí puedes cargar la cola de espera al iniciar
+            this.idDoctor = idDoctor;
+            // Aquí puedes usar idDoctor para cargar información específica del doctor
             panel1.Visible = true;
             panel2.Visible = false;
         }
@@ -53,28 +55,47 @@ namespace medi_queue
                     conn.Open();
                     var dt = new DataTable();
                     using (var cmd = new SqlCommand(
-                        @"SELECT 
-                    Nombre, 
-                    Apellido, 
-                    Edad, 
-                    CASE [Género] WHEN 1 THEN 'Hombre' WHEN 2 THEN 'Mujer' ELSE 'Otro' END AS Género, 
-                    Fecha_Cita, 
-                    [Síntomas], 
-                    Doctor 
-                  FROM Citas", conn))
+                    @"SELECT 
+    a.IDAppointment,
+    p.Name AS Paciente,
+    DATEDIFF(YEAR, p.BirthDate, GETDATE()) AS Edad,
+    CASE p.Gender WHEN 'M' THEN 'Hombre' WHEN 'F' THEN 'Mujer' ELSE 'Otro' END AS Género,
+    a.DateTime AS Fecha_Cita,
+    a.Symptoms AS Síntomas,
+    d.Name AS Doctor
+  FROM Appointments a
+  INNER JOIN Patients p ON a.IDPatient = p.IDPatient
+  INNER JOIN Doctors d ON a.IDDoctor = d.IDDoctor
+  WHERE a.Status = 'Confirmed' AND a.IDDoctor = @IDDoctor
+  ORDER BY a.DateTime", conn))
                     {
+                        cmd.Parameters.AddWithValue("@IDDoctor", idDoctor);
                         using (var da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
                         }
                     }
                     dgvColaEspera.DataSource = dt;
+                    dgvColaEspera.Columns["IDAppointment"].Visible = false; // Opcional: ocultar la columna en la vista
+                    if (dgvColaEspera.Columns.Contains("Apellido"))
+                    {
+                        dgvColaEspera.Columns["Apellido"].Visible = false;
+                    }
+
+                    if (dgvColaEspera.SelectedRows.Count > 0)
+                    {
+                        var cita = dgvColaEspera.SelectedRows[0].DataBoundItem; // DataRowView
+                        var citaForm = new CitaEnCursoForm(cita);
+                        citaForm.ShowDialog();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la cola de espera: " + ex.Message);
             }
+
+
         }
 
         private void btnModificarCita_Click(object sender, EventArgs e)

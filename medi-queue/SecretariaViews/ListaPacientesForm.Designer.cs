@@ -37,14 +37,13 @@ namespace medi_queue.SecretariaViews
             label1 = new Label();
             btnEliminar = new Button();
             btnModificar = new Button();
-            btnCrearCita = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPacientesConCita).BeginInit();
             SuspendLayout();
             // 
             // dgvPacientesConCita
             // 
             dgvPacientesConCita.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPacientesConCita.Location = new Point(12, 54);
+            dgvPacientesConCita.Location = new Point(12, 51);
             dgvPacientesConCita.Name = "dgvPacientesConCita";
             dgvPacientesConCita.RowHeadersWidth = 51;
             dgvPacientesConCita.Size = new Size(776, 281);
@@ -63,9 +62,9 @@ namespace medi_queue.SecretariaViews
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Segoe UI", 15F);
-            btnEliminar.Location = new Point(529, 348);
+            btnEliminar.Location = new Point(388, 348);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(259, 90);
+            btnEliminar.Size = new Size(400, 90);
             btnEliminar.TabIndex = 8;
             btnEliminar.Text = "Eliminar Cita Paciente";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -74,24 +73,13 @@ namespace medi_queue.SecretariaViews
             // btnModificar
             // 
             btnModificar.Font = new Font("Segoe UI", 15F);
-            btnModificar.Location = new Point(268, 348);
+            btnModificar.Location = new Point(12, 348);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(255, 90);
+            btnModificar.Size = new Size(370, 90);
             btnModificar.TabIndex = 7;
             btnModificar.Text = "Modificar Registro Cita";
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
-            // 
-            // btnCrearCita
-            // 
-            btnCrearCita.Font = new Font("Segoe UI", 15F);
-            btnCrearCita.Location = new Point(12, 348);
-            btnCrearCita.Name = "btnCrearCita";
-            btnCrearCita.Size = new Size(250, 90);
-            btnCrearCita.TabIndex = 6;
-            btnCrearCita.Text = "Crear Cita Paciente";
-            btnCrearCita.UseVisualStyleBackColor = true;
-            btnCrearCita.Click += btnCrearCita_Click;
             // 
             // ListaPacientesForm
             // 
@@ -100,7 +88,6 @@ namespace medi_queue.SecretariaViews
             ClientSize = new Size(800, 450);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
-            Controls.Add(btnCrearCita);
             Controls.Add(label1);
             Controls.Add(dgvPacientesConCita);
             Name = "ListaPacientesForm";
@@ -116,6 +103,5 @@ namespace medi_queue.SecretariaViews
         private Label label1;
         private Button btnEliminar;
         private Button btnModificar;
-        private Button btnCrearCita;
     }
 }

@@ -28,118 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblFecha = new Label();
-            lblGenero = new Label();
-            lblNombre = new Label();
-            lblDoctor = new Label();
-            lblEdad = new Label();
-            lblSintomas = new Label();
-            lblApellido = new Label();
-            dtpFechaCita = new DateTimePicker();
-            txtSintomas = new RichTextBox();
-            cmbDoctores = new ComboBox();
+            txtGenero = new Label();
+            txtPaciente = new Label();
+            txtDoctor = new Label();
+            txtFechaNacimiento = new Label();
+            txtSintomas = new Label();
             btnRegistrarCita = new Button();
             btnSalir = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
-            // lblFecha
+            // txtGenero
             // 
-            lblFecha.AutoSize = true;
-            lblFecha.Font = new Font("Segoe UI", 15F);
-            lblFecha.Location = new Point(342, 34);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(128, 35);
-            lblFecha.TabIndex = 14;
-            lblFecha.Text = "Fecha Cita";
+            txtGenero.AutoSize = true;
+            txtGenero.Font = new Font("Segoe UI", 15F);
+            txtGenero.Location = new Point(250, 249);
+            txtGenero.Name = "txtGenero";
+            txtGenero.Size = new Size(96, 35);
+            txtGenero.TabIndex = 13;
+            txtGenero.Text = "Género";
             // 
-            // lblGenero
+            // txtPaciente
             // 
-            lblGenero.AutoSize = true;
-            lblGenero.Font = new Font("Segoe UI", 15F);
-            lblGenero.Location = new Point(64, 207);
-            lblGenero.Name = "lblGenero";
-            lblGenero.Size = new Size(96, 35);
-            lblGenero.TabIndex = 13;
-            lblGenero.Text = "Género";
+            txtPaciente.AutoSize = true;
+            txtPaciente.Font = new Font("Segoe UI", 15F);
+            txtPaciente.Location = new Point(250, 59);
+            txtPaciente.Name = "txtPaciente";
+            txtPaciente.Size = new Size(103, 35);
+            txtPaciente.TabIndex = 12;
+            txtPaciente.Text = "nombre";
             // 
-            // lblNombre
+            // txtDoctor
             // 
-            lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Segoe UI", 15F);
-            lblNombre.Location = new Point(64, 34);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(103, 35);
-            lblNombre.TabIndex = 12;
-            lblNombre.Text = "nombre";
+            txtDoctor.AutoSize = true;
+            txtDoctor.Font = new Font("Segoe UI", 15F);
+            txtDoctor.Location = new Point(590, 182);
+            txtDoctor.Name = "txtDoctor";
+            txtDoctor.Size = new Size(92, 35);
+            txtDoctor.TabIndex = 11;
+            txtDoctor.Text = "Doctor";
             // 
-            // lblDoctor
+            // txtFechaNacimiento
             // 
-            lblDoctor.AutoSize = true;
-            lblDoctor.Font = new Font("Segoe UI", 15F);
-            lblDoctor.Location = new Point(367, 269);
-            lblDoctor.Name = "lblDoctor";
-            lblDoctor.Size = new Size(92, 35);
-            lblDoctor.TabIndex = 11;
-            lblDoctor.Text = "Doctor";
-            // 
-            // lblEdad
-            // 
-            lblEdad.AutoSize = true;
-            lblEdad.Font = new Font("Segoe UI", 15F);
-            lblEdad.Location = new Point(64, 152);
-            lblEdad.Name = "lblEdad";
-            lblEdad.Size = new Size(71, 35);
-            lblEdad.TabIndex = 10;
-            lblEdad.Text = "Edad";
-            // 
-            // lblSintomas
-            // 
-            lblSintomas.AutoSize = true;
-            lblSintomas.Font = new Font("Segoe UI", 15F);
-            lblSintomas.Location = new Point(342, 140);
-            lblSintomas.Name = "lblSintomas";
-            lblSintomas.Size = new Size(117, 35);
-            lblSintomas.TabIndex = 9;
-            lblSintomas.Text = "Síntomas";
-            // 
-            // lblApellido
-            // 
-            lblApellido.AutoSize = true;
-            lblApellido.Font = new Font("Segoe UI", 15F);
-            lblApellido.Location = new Point(64, 97);
-            lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(107, 35);
-            lblApellido.TabIndex = 8;
-            lblApellido.Text = "Apellido";
-            // 
-            // dtpFechaCita
-            // 
-            dtpFechaCita.Location = new Point(517, 41);
-            dtpFechaCita.Name = "dtpFechaCita";
-            dtpFechaCita.Size = new Size(250, 27);
-            dtpFechaCita.TabIndex = 15;
+            txtFechaNacimiento.AutoSize = true;
+            txtFechaNacimiento.Font = new Font("Segoe UI", 15F);
+            txtFechaNacimiento.Location = new Point(250, 156);
+            txtFechaNacimiento.Name = "txtFechaNacimiento";
+            txtFechaNacimiento.Size = new Size(71, 35);
+            txtFechaNacimiento.TabIndex = 10;
+            txtFechaNacimiento.Text = "Edad";
             // 
             // txtSintomas
             // 
-            txtSintomas.Location = new Point(479, 126);
+            txtSintomas.AutoSize = true;
+            txtSintomas.Font = new Font("Segoe UI", 15F);
+            txtSintomas.Location = new Point(581, 68);
             txtSintomas.Name = "txtSintomas";
-            txtSintomas.Size = new Size(279, 74);
-            txtSintomas.TabIndex = 16;
-            txtSintomas.Text = "";
-            // 
-            // cmbDoctores
-            // 
-            cmbDoctores.FormattingEnabled = true;
-            cmbDoctores.Location = new Point(517, 278);
-            cmbDoctores.Name = "cmbDoctores";
-            cmbDoctores.Size = new Size(191, 28);
-            cmbDoctores.TabIndex = 17;
+            txtSintomas.Size = new Size(117, 35);
+            txtSintomas.TabIndex = 9;
+            txtSintomas.Text = "Síntomas";
             // 
             // btnRegistrarCita
             // 
-            btnRegistrarCita.Location = new Point(188, 362);
+            btnRegistrarCita.Font = new Font("Segoe UI", 15F);
+            btnRegistrarCita.Location = new Point(164, 338);
             btnRegistrarCita.Name = "btnRegistrarCita";
-            btnRegistrarCita.Size = new Size(180, 29);
+            btnRegistrarCita.Size = new Size(223, 76);
             btnRegistrarCita.TabIndex = 18;
             btnRegistrarCita.Text = "Registrar Cita";
             btnRegistrarCita.UseVisualStyleBackColor = true;
@@ -147,31 +105,82 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(466, 362);
+            btnSalir.Font = new Font("Segoe UI", 15F);
+            btnSalir.Location = new Point(419, 338);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(94, 29);
+            btnSalir.Size = new Size(152, 76);
             btnSalir.TabIndex = 19;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.Location = new Point(119, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(112, 35);
+            label1.TabIndex = 20;
+            label1.Text = "Paciente:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15F);
+            label2.Location = new Point(12, 156);
+            label2.Name = "label2";
+            label2.Size = new Size(219, 35);
+            label2.TabIndex = 21;
+            label2.Text = "Fecha Nacimiento:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F);
+            label3.Location = new Point(130, 249);
+            label3.Name = "label3";
+            label3.Size = new Size(101, 35);
+            label3.TabIndex = 22;
+            label3.Text = "Género:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 15F);
+            label4.Location = new Point(438, 68);
+            label4.Name = "label4";
+            label4.Size = new Size(122, 35);
+            label4.TabIndex = 23;
+            label4.Text = "Síntomas:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 15F);
+            label5.Location = new Point(463, 182);
+            label5.Name = "label5";
+            label5.Size = new Size(97, 35);
+            label5.TabIndex = 24;
+            label5.Text = "Doctor:";
             // 
             // GenerarTurnoForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(btnSalir);
             Controls.Add(btnRegistrarCita);
-            Controls.Add(cmbDoctores);
+            Controls.Add(txtGenero);
+            Controls.Add(txtPaciente);
+            Controls.Add(txtDoctor);
+            Controls.Add(txtFechaNacimiento);
             Controls.Add(txtSintomas);
-            Controls.Add(dtpFechaCita);
-            Controls.Add(lblFecha);
-            Controls.Add(lblGenero);
-            Controls.Add(lblNombre);
-            Controls.Add(lblDoctor);
-            Controls.Add(lblEdad);
-            Controls.Add(lblSintomas);
-            Controls.Add(lblApellido);
             Name = "GenerarTurnoForm";
             Text = "GenerarTurnoForm";
             ResumeLayout(false);
@@ -179,18 +188,17 @@
         }
 
         #endregion
-
-        private Label lblFecha;
-        private Label lblGenero;
-        private Label lblNombre;
-        private Label lblDoctor;
-        private Label lblEdad;
-        private Label lblSintomas;
-        private Label lblApellido;
-        private DateTimePicker dtpFechaCita;
-        private RichTextBox txtSintomas;
-        private ComboBox cmbDoctores;
+        private Label txtGenero;
+        private Label txtPaciente;
+        private Label txtDoctor;
+        private Label txtFechaNacimiento;
+        private Label txtSintomas;
         private Button btnRegistrarCita;
         private Button btnSalir;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }

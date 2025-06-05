@@ -1,4 +1,6 @@
-﻿using System;
+﻿using medi_queue.database;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +14,26 @@ namespace medi_queue.SecretariaViews
 {
     public partial class GenerarTurnoForm : Form
     {
-        private dynamic paciente;
-        public GenerarTurnoForm(dynamic pacienteSeleccionado = null)
+        private int idCita;
+        public GenerarTurnoForm(
+            int idCita,
+            string paciente,
+            DateTime fechaNacimiento,
+            string genero,
+            string telefono,
+            DateTime fechaCita,
+            string estado,
+            string sintomas,
+            string doctor)
         {
             InitializeComponent();
-            paciente = pacienteSeleccionado;
-            if (paciente != null)
-            {
-                // Mostrar datos del paciente en los campos correspondientes
-            }
-            CargarDoctores();
+            this.idCita = idCita; // <-- Faltaba esta línea
+                                  // Asigna los valores a los controles del formulario
+            txtPaciente.Text = paciente;
+            txtFechaNacimiento.Text = fechaNacimiento.ToShortDateString();
+            txtGenero.Text = genero;
+            txtSintomas.Text = sintomas;
+            txtDoctor.Text = doctor;
         }
 
         private void CargarDoctores()
@@ -31,17 +43,25 @@ namespace medi_queue.SecretariaViews
 
         private void btnRegistrarCita_Click(object sender, EventArgs e)
         {
-            // Validar y registrar cita
-            bool datosValidos = true; // Implementar validación real
-            if (datosValidos)
+            // Suponiendo que tienes el ID de la cita (IDAppointment)
+            try
             {
-                // Lógica para registrar cita en la base de datos
-                MessageBox.Show("Cita creada correctamente.");
+                using (var conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new SqlCommand(
+                        @"UPDATE Appointments SET Status = 'Confirmed' WHERE IDAppointment = @IDAppointment", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@IDAppointment", idCita); // idCita debe estar definido
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Cita confirmada correctamente.");
                 this.Close();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Verificar todos los datos de la cita.");
+                MessageBox.Show("Error al confirmar la cita: " + ex.Message);
             }
         }
 

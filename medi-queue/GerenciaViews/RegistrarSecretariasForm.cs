@@ -17,52 +17,67 @@ namespace medi_queue.GerenciaViews
         public RegistrarSecretariasForm()
         {
             InitializeComponent();
-            cmbGenero.Items.AddRange(new[] { "Femenino", "Masculino" });
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void RegistrarSecretariasForm_Load(object sender, EventArgs e)
         {
-            try
+ 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // Validación de campos obligatorios
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtUsuario.Text) ||
+                string.IsNullOrWhiteSpace(txtContrasena.Text))
             {
-                using (var conn = DatabaseConnection.GetConnection())
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nombre = txtNombre.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string username = txtUsuario.Text.Trim();
+            string password = txtContrasena.Text.Trim();
+
+            using (var conn = DatabaseConnection.GetConnection())
+            {
+                conn.Open();
+                // Obtener el ID del rol de secretaria
+                int idRole = GetRoleId("Secretaria", conn);
+                int userId;
+                // Insertar en Users
+                using (var cmd = new SqlCommand(
+                    "INSERT INTO Users (Username, Password, IDRole) OUTPUT INSERTED.ID VALUES (@username, @password, @idRole)", conn))
                 {
-                    conn.Open();
-                    var cmd = new SqlCommand(
-                        "INSERT INTO Secretarias (Nombre, Apellido, Dui, FechaNacimiento, Genero, Telefono, Usuario, Contrasena) " +
-                        "VALUES (@Nombre, @Apellido, @Dui, @FechaNacimiento, @Genero, @Telefono, @Usuario, @Contrasena)", conn);
-
-                    cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text);
-                    cmd.Parameters.AddWithValue("@Dui", txtDui.Text);
-                    cmd.Parameters.AddWithValue("@FechaNacimiento", dtpFechaNacimiento.Value);
-                    cmd.Parameters.AddWithValue("@Genero", cmbGenero.SelectedItem?.ToString() ?? "");
-                    cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
-                    cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text);
-                    cmd.Parameters.AddWithValue("@Contrasena", txtContrasena.Text);
-
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@idRole", idRole);
+                    userId = (int)cmd.ExecuteScalar();
+                }
+                // Insertar en Secretaries
+                using (var cmd = new SqlCommand(
+                    "INSERT INTO Secretaries (Name, PhoneNumber, IDRole, UserID) VALUES (@name, @phone, @idRole, @userId)", conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", nombre);
+                    cmd.Parameters.AddWithValue("@phone", telefono);
+                    cmd.Parameters.AddWithValue("@idRole", idRole);
+                    cmd.Parameters.AddWithValue("@userId", userId);
                     cmd.ExecuteNonQuery();
                 }
-                MessageBox.Show("Secretaria registrada correctamente.");
-                this.Close();
             }
-            catch (Exception ex)
+            MessageBox.Show("Secretaria registrada correctamente.");
+            this.Close();
+        }
+
+        private int GetRoleId(string roleName, SqlConnection conn)
+        {
+            using (var cmd = new SqlCommand("SELECT IDRole FROM Roles WHERE RoleName = @role", conn))
             {
-                MessageBox.Show("Error al registrar secretaria: " + ex.Message);
+                cmd.Parameters.AddWithValue("@role", roleName);
+                return (int)cmd.ExecuteScalar();
             }
         }
     }

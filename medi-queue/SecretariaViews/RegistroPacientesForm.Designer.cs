@@ -49,6 +49,7 @@
             btnModificar = new Button();
             btnCrear = new Button();
             dgvPacientes = new DataGridView();
+            btnCrearCita = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPacientes).BeginInit();
@@ -62,6 +63,7 @@
             panel1.Controls.Add(btnModificar);
             panel1.Controls.Add(btnCrear);
             panel1.Controls.Add(dgvPacientes);
+            panel1.Controls.Add(btnCrearCita);
             panel1.Location = new Point(1, 1);
             panel1.Name = "panel1";
             panel1.Size = new Size(803, 451);
@@ -83,14 +85,15 @@
             panel2.Controls.Add(txtApellido);
             panel2.Controls.Add(txtTelefono);
             panel2.Controls.Add(txtNombre);
-            panel2.Location = new Point(3, 3);
+            panel2.Location = new Point(3, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 454);
+            panel2.Size = new Size(800, 448);
             panel2.TabIndex = 1;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(536, 240);
+            btnCancelar.Font = new Font("Segoe UI", 15F);
+            btnCancelar.Location = new Point(585, 245);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(148, 92);
             btnCancelar.TabIndex = 14;
@@ -100,7 +103,8 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(536, 121);
+            btnGuardar.Font = new Font("Segoe UI", 15F);
+            btnGuardar.Location = new Point(585, 126);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(148, 92);
             btnGuardar.TabIndex = 13;
@@ -110,100 +114,112 @@
             // 
             // cmbGenero
             // 
+            cmbGenero.Font = new Font("Segoe UI", 15F);
             cmbGenero.FormattingEnabled = true;
             cmbGenero.Items.AddRange(new object[] { "Femenino", "Masculino" });
-            cmbGenero.Location = new Point(135, 253);
+            cmbGenero.Location = new Point(245, 240);
             cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(151, 28);
+            cmbGenero.Size = new Size(276, 43);
             cmbGenero.TabIndex = 12;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(26, 320);
+            label7.Font = new Font("Segoe UI", 15F);
+            label7.Location = new Point(10, 302);
             label7.Name = "label7";
-            label7.Size = new Size(149, 20);
+            label7.Size = new Size(219, 35);
             label7.TabIndex = 11;
-            label7.Text = "Fecha de Nacimiento";
+            label7.Text = "Fecha Nacimiento:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(43, 130);
+            label6.Font = new Font("Segoe UI", 15F);
+            label6.Location = new Point(116, 120);
             label6.Name = "label6";
-            label6.Size = new Size(66, 20);
+            label6.Size = new Size(112, 35);
             label6.TabIndex = 10;
-            label6.Text = "Apellido";
+            label6.Text = "Apellido:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(52, 193);
+            label5.Font = new Font("Segoe UI", 15F);
+            label5.Location = new Point(170, 183);
             label5.Name = "label5";
-            label5.Size = new Size(32, 20);
+            label5.Size = new Size(58, 35);
             label5.TabIndex = 9;
-            label5.Text = "Dui";
+            label5.Text = "Dui:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(43, 253);
+            label4.Font = new Font("Segoe UI", 15F);
+            label4.Location = new Point(127, 243);
             label4.Name = "label4";
-            label4.Size = new Size(57, 20);
+            label4.Size = new Size(101, 35);
             label4.TabIndex = 8;
-            label4.Text = "Género";
+            label4.Text = "Género:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(52, 381);
+            label3.Font = new Font("Segoe UI", 15F);
+            label3.Location = new Point(113, 369);
             label3.Name = "label3";
-            label3.Size = new Size(67, 20);
+            label3.Size = new Size(115, 35);
             label3.TabIndex = 7;
-            label3.Text = "Teléfono";
+            label3.Text = "Teléfono:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(52, 62);
+            label2.Font = new Font("Segoe UI", 15F);
+            label2.Location = new Point(115, 45);
             label2.Name = "label2";
-            label2.Size = new Size(64, 20);
+            label2.Size = new Size(113, 35);
             label2.TabIndex = 6;
-            label2.Text = "Nombre";
+            label2.Text = "Nombre:";
             // 
             // dtpFechaNacimiento
             // 
-            dtpFechaNacimiento.Location = new Point(195, 315);
+            dtpFechaNacimiento.Font = new Font("Segoe UI", 15F);
+            dtpFechaNacimiento.Location = new Point(245, 302);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(250, 27);
+            dtpFechaNacimiento.Size = new Size(276, 41);
             dtpFechaNacimiento.TabIndex = 5;
             // 
             // txtDui
             // 
-            txtDui.Location = new Point(135, 190);
+            txtDui.Font = new Font("Segoe UI", 15F);
+            txtDui.Location = new Point(245, 177);
             txtDui.Name = "txtDui";
-            txtDui.Size = new Size(125, 27);
+            txtDui.Size = new Size(276, 41);
             txtDui.TabIndex = 4;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(135, 123);
+            txtApellido.Font = new Font("Segoe UI", 15F);
+            txtApellido.Location = new Point(245, 117);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(125, 27);
+            txtApellido.Size = new Size(276, 41);
             txtApellido.TabIndex = 3;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(135, 374);
+            txtTelefono.Font = new Font("Segoe UI", 15F);
+            txtTelefono.Location = new Point(245, 363);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(125, 27);
+            txtTelefono.Size = new Size(276, 41);
             txtTelefono.TabIndex = 1;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(135, 62);
+            txtNombre.Font = new Font("Segoe UI", 15F);
+            txtNombre.Location = new Point(245, 42);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(125, 27);
+            txtNombre.Size = new Size(276, 41);
             txtNombre.TabIndex = 0;
             // 
             // label1
@@ -219,9 +235,9 @@
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Segoe UI", 15F);
-            btnEliminar.Location = new Point(530, 348);
+            btnEliminar.Location = new Point(396, 348);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(259, 90);
+            btnEliminar.Size = new Size(186, 90);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar Registro Paciente";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -230,9 +246,9 @@
             // btnModificar
             // 
             btnModificar.Font = new Font("Segoe UI", 15F);
-            btnModificar.Location = new Point(269, 348);
+            btnModificar.Location = new Point(199, 348);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(255, 90);
+            btnModificar.Size = new Size(191, 90);
             btnModificar.TabIndex = 2;
             btnModificar.Text = "Modificar Registro Paciente";
             btnModificar.UseVisualStyleBackColor = true;
@@ -243,7 +259,7 @@
             btnCrear.Font = new Font("Segoe UI", 15F);
             btnCrear.Location = new Point(13, 348);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(250, 90);
+            btnCrear.Size = new Size(180, 90);
             btnCrear.TabIndex = 1;
             btnCrear.Text = "Crear Registro Paciente";
             btnCrear.UseVisualStyleBackColor = true;
@@ -257,6 +273,17 @@
             dgvPacientes.RowHeadersWidth = 51;
             dgvPacientes.Size = new Size(776, 270);
             dgvPacientes.TabIndex = 0;
+            // 
+            // btnCrearCita
+            // 
+            btnCrearCita.Font = new Font("Segoe UI", 15F);
+            btnCrearCita.Location = new Point(588, 348);
+            btnCrearCita.Name = "btnCrearCita";
+            btnCrearCita.Size = new Size(199, 90);
+            btnCrearCita.TabIndex = 5;
+            btnCrearCita.Text = "Crear Cita Paciente";
+            btnCrearCita.UseVisualStyleBackColor = true;
+            btnCrearCita.Click += btnCrearCitaPaciente_Click;
             // 
             // RegistroPacientesForm
             // 
@@ -302,5 +329,6 @@
         private ComboBox cmbGenero;
         private Button btnCancelar;
         private Button btnGuardar;
+        private Button btnCrearCita;
     }
 }

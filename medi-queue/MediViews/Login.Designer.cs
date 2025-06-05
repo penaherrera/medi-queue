@@ -40,7 +40,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 18F);
-            button1.Location = new Point(310, 437);
+            button1.Location = new Point(266, 436);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(125, 71);
@@ -52,7 +52,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 18F);
-            button2.Location = new Point(525, 438);
+            button2.Location = new Point(497, 438);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(125, 69);
@@ -65,26 +65,26 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F);
-            label1.Location = new Point(217, 122);
+            label1.Location = new Point(189, 113);
             label1.Name = "label1";
-            label1.Size = new Size(200, 54);
+            label1.Size = new Size(166, 54);
             label1.TabIndex = 2;
-            label1.Text = "Username";
+            label1.Text = "Usuario:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 24F);
-            label2.Location = new Point(217, 250);
+            label2.Location = new Point(189, 241);
             label2.Name = "label2";
-            label2.Size = new Size(188, 54);
+            label2.Size = new Size(232, 54);
             label2.TabIndex = 3;
-            label2.Text = "Password";
+            label2.Text = "Contraseña:";
             // 
             // txtUser
             // 
             txtUser.Font = new Font("Segoe UI", 24F);
-            txtUser.Location = new Point(461, 122);
+            txtUser.Location = new Point(433, 113);
             txtUser.Margin = new Padding(3, 4, 3, 4);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(278, 61);
@@ -93,7 +93,7 @@
             // txtPass
             // 
             txtPass.Font = new Font("Segoe UI", 24F);
-            txtPass.Location = new Point(461, 250);
+            txtPass.Location = new Point(433, 241);
             txtPass.Margin = new Padding(3, 4, 3, 4);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
@@ -104,16 +104,16 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Segoe UI", 14F);
-            checkBox1.Location = new Point(503, 357);
+            checkBox1.Location = new Point(433, 349);
             checkBox1.Margin = new Padding(3, 4, 3, 4);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(198, 36);
+            checkBox1.Size = new Size(245, 36);
             checkBox1.TabIndex = 6;
-            checkBox1.Text = "Show Password";
+            checkBox1.Text = "Mostrar Contraseña";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -126,7 +126,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Form1";
+            Name = "Login";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

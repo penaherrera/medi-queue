@@ -19,9 +19,10 @@ namespace medi_queue
                 {
                     connection.Open();
 
-                    string query = "SELECT r.RoleName, r.IDRole FROM Users u " +
-                                   "INNER JOIN Roles r ON u.IDRole = r.IDRole " +
-                                   "WHERE u.Username = @username AND u.Password = @password";
+                    string query = @"SELECT u.id, u.username, u.IDRole, r.RoleName
+                                     FROM Users u
+                                     INNER JOIN Roles r ON u.IDRole = r.IDRole
+                                     WHERE u.Username = @username AND u.Password = @password";
 
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
@@ -32,15 +33,16 @@ namespace medi_queue
                         {
                             if (reader.Read())
                             {
+                                var idUser = Convert.ToInt32(reader["id"]);
                                 var roleName = reader["RoleName"].ToString();
                                 var idRole = reader["IDRole"].ToString();
 
-                                MessageBox.Show($"Login success. Role: {roleName}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                OpenFormBasedOnRole(idRole);
+                                MessageBox.Show($"Login success. Rol: {roleName}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                OpenFormBasedOnUser(idUser, idRole);
                             }
                             else
                             {
-                                MessageBox.Show("Error in Login", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
@@ -56,29 +58,75 @@ namespace medi_queue
             }
         }
 
-        private void OpenFormBasedOnRole(string idRole)
+        private void OpenFormBasedOnUser(int idUser, string idRole)
         {
             Form formToOpen = null;
 
             switch (idRole)
             {
-                case "2":
-                    formToOpen = new DoctorForm();
-                    break;
-                case "1":
+                case "3": // Doctor
+                    {
+                        int idDoctor = GetDoctorIdByUserId(idUser);
+                        if (idDoctor > 0)
+                            formToOpen = new DoctorForm(idDoctor);
+                        else
+                        {
+                            MessageBox.Show("No se encontró el doctor asociado a este usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        break;
+                    }
+                case "2": // Secretaria
+                    {
+                        int idSecretaria = GetSecretaryIdByUserId(idUser);
+                        if (idSecretaria > 0)
+                            formToOpen = new SecretariaForm(idSecretaria);
+                        else
+                        {
+                            MessageBox.Show("No se encontró la secretaria asociada a este usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        break;
+                    }
+                case "1": // Gerente
                     formToOpen = new GerenteForm();
                     break;
-                case "3":
-                    formToOpen = new SecretariaForm();
-                    break;
                 default:
-                    MessageBox.Show("Role not recognized", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Rol no reconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
 
             this.Hide();
             formToOpen.ShowDialog();
             this.Show();
+        }
+
+        private int GetDoctorIdByUserId(int userId)
+        {
+            using (var conn = DatabaseConnection.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand("SELECT IDDoctor FROM Doctors WHERE UserID = @UserID", conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    var result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
+        }
+
+        private int GetSecretaryIdByUserId(int userId)
+        {
+            using (var conn = DatabaseConnection.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand("SELECT IDSecretary FROM Secretaries WHERE UserID = @UserID", conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    var result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

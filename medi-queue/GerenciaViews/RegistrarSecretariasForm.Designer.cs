@@ -41,165 +41,98 @@ namespace medi_queue.GerenciaViews
         private void InitializeComponent()
         {
             txtNombre = new TextBox();
-            txtApellido = new TextBox();
-            txtDui = new TextBox();
             txtTelefono = new TextBox();
             txtUsuario = new TextBox();
             txtContrasena = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            dtpFechaNacimiento = new DateTimePicker();
-            label7 = new Label();
-            cmbGenero = new ComboBox();
-            label8 = new Label();
+            lblNombre = new Label();
+            lblTelefono = new Label();
+            lblUsuario = new Label();
+            lblContraseña = new Label();
             btnRegistrar = new Button();
             SuspendLayout();
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(151, 47);
+            txtNombre.Font = new Font("Segoe UI", 15F);
+            txtNombre.Location = new Point(219, 60);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(125, 27);
+            txtNombre.Size = new Size(219, 41);
             txtNombre.TabIndex = 0;
-            // 
-            // txtApellido
-            // 
-            txtApellido.Location = new Point(151, 103);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(125, 27);
-            txtApellido.TabIndex = 1;
-            // 
-            // txtDui
-            // 
-            txtDui.Location = new Point(151, 171);
-            txtDui.Name = "txtDui";
-            txtDui.Size = new Size(125, 27);
-            txtDui.TabIndex = 2;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(151, 243);
+            txtTelefono.Font = new Font("Segoe UI", 15F);
+            txtTelefono.Location = new Point(219, 141);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(125, 27);
+            txtTelefono.Size = new Size(219, 41);
             txtTelefono.TabIndex = 3;
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(151, 314);
+            txtUsuario.Font = new Font("Segoe UI", 15F);
+            txtUsuario.Location = new Point(219, 234);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(125, 27);
+            txtUsuario.Size = new Size(219, 41);
             txtUsuario.TabIndex = 4;
             // 
             // txtContrasena
             // 
-            txtContrasena.Location = new Point(151, 372);
+            txtContrasena.Font = new Font("Segoe UI", 15F);
+            txtContrasena.Location = new Point(219, 328);
             txtContrasena.Name = "txtContrasena";
-            txtContrasena.Size = new Size(125, 27);
+            txtContrasena.Size = new Size(219, 41);
             txtContrasena.TabIndex = 5;
             // 
-            // label1
+            // lblNombre
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(62, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(64, 20);
-            label1.TabIndex = 6;
-            label1.Text = "Nombre";
-            label1.Click += label1_Click;
+            lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 15F);
+            lblNombre.Location = new Point(92, 60);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(108, 35);
+            lblNombre.TabIndex = 6;
+            lblNombre.Text = "Nombre";
             // 
-            // label2
+            // lblTelefono
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(62, 103);
-            label2.Name = "label2";
-            label2.Size = new Size(66, 20);
-            label2.TabIndex = 7;
-            label2.Text = "Apellido";
-            label2.Click += label2_Click;
+            lblTelefono.AutoSize = true;
+            lblTelefono.Font = new Font("Segoe UI", 15F);
+            lblTelefono.Location = new Point(92, 147);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(110, 35);
+            lblTelefono.TabIndex = 9;
+            lblTelefono.Text = "Telefono";
             // 
-            // label3
+            // lblUsuario
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(62, 178);
-            label3.Name = "label3";
-            label3.Size = new Size(32, 20);
-            label3.TabIndex = 8;
-            label3.Text = "Dui";
-            label3.Click += label3_Click;
+            lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 15F);
+            lblUsuario.Location = new Point(100, 237);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(100, 35);
+            lblUsuario.TabIndex = 10;
+            lblUsuario.Text = "Usuario";
             // 
-            // label4
+            // lblContraseña
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(60, 243);
-            label4.Name = "label4";
-            label4.Size = new Size(67, 20);
-            label4.TabIndex = 9;
-            label4.Text = "Telefono";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(59, 321);
-            label5.Name = "label5";
-            label5.Size = new Size(59, 20);
-            label5.TabIndex = 10;
-            label5.Text = "Usuario";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(60, 379);
-            label6.Name = "label6";
-            label6.Size = new Size(83, 20);
-            label6.TabIndex = 11;
-            label6.Text = "Contraseña";
-            // 
-            // dtpFechaNacimiento
-            // 
-            dtpFechaNacimiento.Location = new Point(489, 47);
-            dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(188, 27);
-            dtpFechaNacimiento.TabIndex = 12;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(322, 50);
-            label7.Name = "label7";
-            label7.Size = new Size(149, 20);
-            label7.TabIndex = 13;
-            label7.Text = "Fecha de Nacimiento";
-            // 
-            // cmbGenero
-            // 
-            cmbGenero.FormattingEnabled = true;
-            cmbGenero.Items.AddRange(new object[] { "Femenino", "Masculino" });
-            cmbGenero.Location = new Point(500, 111);
-            cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(151, 28);
-            cmbGenero.TabIndex = 14;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(383, 119);
-            label8.Name = "label8";
-            label8.Size = new Size(57, 20);
-            label8.TabIndex = 15;
-            label8.Text = "Género";
+            lblContraseña.AutoSize = true;
+            lblContraseña.Font = new Font("Segoe UI", 15F);
+            lblContraseña.Location = new Point(60, 328);
+            lblContraseña.Name = "lblContraseña";
+            lblContraseña.Size = new Size(140, 35);
+            lblContraseña.TabIndex = 11;
+            lblContraseña.Text = "Contraseña";
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(429, 204);
+            btnRegistrar.Font = new Font("Segoe UI", 15F);
+            btnRegistrar.Location = new Point(519, 164);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(165, 99);
             btnRegistrar.TabIndex = 16;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnGuardar_Click;
             // 
             // RegistrarSecretariasForm
             // 
@@ -207,21 +140,13 @@ namespace medi_queue.GerenciaViews
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnRegistrar);
-            Controls.Add(label8);
-            Controls.Add(cmbGenero);
-            Controls.Add(label7);
-            Controls.Add(dtpFechaNacimiento);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblContraseña);
+            Controls.Add(lblUsuario);
+            Controls.Add(lblTelefono);
+            Controls.Add(lblNombre);
             Controls.Add(txtContrasena);
             Controls.Add(txtUsuario);
             Controls.Add(txtTelefono);
-            Controls.Add(txtDui);
-            Controls.Add(txtApellido);
             Controls.Add(txtNombre);
             Name = "RegistrarSecretariasForm";
             Text = "RegistrarSecretariasForm";
@@ -233,21 +158,13 @@ namespace medi_queue.GerenciaViews
         #endregion
 
         private TextBox txtNombre;
-        private TextBox txtApellido;
-        private TextBox txtDui;
         private TextBox txtTelefono;
         private TextBox txtUsuario;
         private TextBox txtContrasena;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private DateTimePicker dtpFechaNacimiento;
-        private Label label7;
-        private ComboBox cmbGenero;
-        private Label label8;
+        private Label lblNombre;
+        private Label lblTelefono;
+        private Label lblUsuario;
+        private Label lblContraseña;
         private Button btnRegistrar;
     }
 }
